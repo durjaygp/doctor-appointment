@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class, 'index'])->name('home');
+
+Route::get('/doctor',[DoctorController::class, 'index'])->name('doctor');
+Route::post('/doctor/create',[DoctorController::class, 'create'])->name('doctor.create');
+
+
